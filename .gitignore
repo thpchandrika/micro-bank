@@ -1,0 +1,34 @@
+# Ignore node_modules directory (common for Node.js projects)
+node_modules/
+
+# Ignore any built or compiled files
+/dist/
+/build/
+/out/
+/.nyc_output/
+/.vscode/
+
+# Ignore editor and IDE specific files and directories
+.idea/
+.vscode/
+
+# Ignore log files and test results
+*.log
+__tests__/
+coverage/
+
+# Ignore any user-specific or environment-specific files
+.env
+.env.local
+.env.*.local
+
+# Ignore npm debug logs
+npm-debug.log*
+
+# Ignore dependencies that may be installed in different ways (npm, yarn, etc.)
+/yarn.lock
+/package-lock.json
+
+# Ignore OS generated files
+.DS_Store
+Thumbs.db
