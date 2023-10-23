@@ -78,13 +78,13 @@
                         <div class="feature">
                             <i class="fas fa-money-bill fa-3x"></i>
                             <h3>Bill Payment</h3>
-                            <p>Make payment to third party.</p>
+                            <p>Make Payment to third party.</p>
                         </div>
                     </div>
                 </div>
             </div>
         </section>
-        <!-- Login and Register Section -->
+        <!-- Register Section -->
         <section id="login_register">
             <div class="row justify-content-center">
                 <div class="col-5 mt-5">
@@ -102,38 +102,47 @@
                         <div class="card-body">
                             <div class="row justify-content-center">
                                 <div class="col-10 my-4">
-                                    <form id="account" method="post">
-                                        <h2>Welcome back!</h2>
+                                    <form id="registerForm" asp-route-returnUrl="@Model.ReturnUrl" method="post">
+                                        <h2>Create a new account.</h2>
                                         <hr />
                                         <div asp-validation-summary="ModelOnly" class="text-danger" role="alert"></div>
+
+                                        <div class="row">
+                                            <div class="col-6">
+                                                <div class="form-floating mb-3">
+                                                    <input name="firstname" class="form-control"
+                                                        autocomplete="firstname" aria-required="true"
+                                                        placeholder="first name" />
+                                                    <label for="firstname">First Name</label>
+                                                </div>
+                                            </div>
+                                            <div class="col-6">
+                                                <div class="form-floating mb-3">
+                                                    <input name="lastname" class="form-control" autocomplete="lastname"
+                                                        aria-required="true" placeholder="last name" />
+                                                    <label for="lastname">Last Name</label>
+                                                </div>
+                                            </div>
+                                        </div>
+
                                         <div class="form-floating mb-3">
-                                            <input name="loginemail" class="form-control" autocomplete="username"
+                                            <input name="email" class="form-control" autocomplete="username"
                                                 aria-required="true" placeholder="name@example.com" />
-                                            <label for="loginemail" class="form-label">Email</label>
+                                            <label for="email">Email</label>
                                         </div>
                                         <div class="form-floating mb-3">
-                                            <input name="loginpassword" class="form-control"
-                                                autocomplete="current-password" aria-required="true"
+                                            <input name="password" class="form-control" autocomplete="new-password"
+                                                aria-required="true" placeholder="password" />
+                                            <label for="password">Password</label>
+                                        </div>
+                                        <div class="form-floating mb-3">
+                                            <input name="confirmpassword" class="form-control"
+                                                autocomplete="new-password" aria-required="true"
                                                 placeholder="password" />
-                                            <label for="loginpassword" class="form-label">Password</label>
+                                            <label for="confirmpassword">Confirm Password</label>
                                         </div>
-                                        <!-- <div class="checkbox mb-3">
-                                            <label name="rememberme" class="form-label">
-                                                <input class="form-check-input" for="rememberme" />
-                                            </label>
-                                        </div> -->
-                                        <div>
-                                            <button id="login-submit" type="submit"
-                                                class="w-100 btn btn-lg btn-primary">Log in</button>
-                                        </div>
-                                        <!-- <div>
-                                            <p>
-                                                <a id="forgot-password">Forgot your password?</a>
-                                            </p>
-                                            <p>
-                                                <a id="resend-confirmation">Resend email confirmation</a>
-                                            </p>
-                                        </div> -->
+                                        <button id="registerSubmit" type="submit"
+                                            class="w-100 btn btn-lg btn-primary">Register</button>
                                     </form>
                                 </div>
                             </div>
@@ -150,6 +159,7 @@
             <p>&copy; 2023 Online Banking. All rights reserved.</p>
         </div>
     </footer>
+
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.min.js"></script>
     <script src="./js/script.js"></script>
 </body>
