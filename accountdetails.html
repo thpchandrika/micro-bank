@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Create Account</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
+    <script>
+        const authToken = localStorage.getItem('authToken');
+        console.log(authToken);
+        if (!authToken) {
+            window.location.href = './login.html';
+        }
+    </script>
+</head>
+
+<body>
+    <!-- Header -->
+    <header class="bg-primary text-white p-3">
+        <div class="container">
+            <h1>Create Account</h1>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <div class="container-fluid">
+        <div class="row">
+            <!-- Sidebar -->
+            <nav id="sidebar" class="col-md-3 col-lg-2 d-md-block bg-light sidebar">
+                <div class="position-sticky">
+                    <ul class="nav flex-column">
+                        <li class="nav-item">
+                            <a class="nav-link active" href="#">
+                                Dashboard
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">
+                                Create Account
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">
+                                Account Details
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">
+                                Fund Transfer
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">
+                                Bill Payment
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </nav>
+
+            <!-- Main Content -->
+            <main class="col-md-9 ms-sm-auto col-lg-10 px-md-4">
+                <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3">
+                    <h2>Account Details</h2>
+                </div>
+                <table class="table table-striped" id="mytable">
+                    <thead>
+                        <tr>
+                            <th scope="col">Account Number</th>
+                            <th scope="col">Account Holder</th>
+                            <th scope="col">Account Type</th>
+                            <th scope="col">Balance</th>
+                        </tr>
+                    </thead>
+                    <tbody id="tbodyAccountList">
+
+                    </tbody>
+                </table>
+            </main>
+        </div>
+    </div>
+
+    <!-- Footer Section -->
+    <footer class="footer bg-light text-center py-4 mt-2">
+        <div class="container">
+            <p>&copy; 2023 Online Banking. All rights reserved.</p>
+        </div>
+    </footer>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.min.js"></script>
+    <script src="./js/accountDetails.js"></script>
+</body>
+
+</html>
