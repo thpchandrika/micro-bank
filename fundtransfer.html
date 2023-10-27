@@ -4,16 +4,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Bank Account Dashboard</title>
+    <title>Transfer Fund</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
-    <!-- <script>
-        const authToken = localStorage.getItem('authToken');
-        if (!authToken) {
-            window.location.href = './login.html';
-        }
-    </script> -->
     <script src="./js/common/authenticate.js"></script>
 </head>
 
@@ -66,24 +59,32 @@
 
             <!-- Main Content -->
             <main class="col-md-9 ms-sm-auto col-lg-10 px-md-4">
-                <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3">
-                    <h2>Dashboard</h2>
-                </div>
-                <div class="row">
-                    <div class="col-md-6">
-                        <div class="account-summary">
-                            <h3>Account Summary</h3>
-                            <!-- Display account balance, account number, etc. -->
-                        </div>
+                <div class="card">
+                    <div class="card-header">
+                        <h3>Fund Transfer</h3>
                     </div>
-                    <div class="col-md-6">
-                        <div class="transaction-history">
-                            <h3>Transaction History</h3>
-                            <!-- Display recent transactions with details -->
-                        </div>
+                    <div class="card-body">
+                        <form id="transferForm">
+                            <div class="mb-3">
+                                <label for="fromAccount" class="form-label">From Account</label>
+                                <select class="form-select" name="fromAccountDdl" id="fromAccountDdl" required>
+                                    <option value="">Select an account</option>
+                                </select>
+                            </div>
+                            <div class="mb-3">
+                                <label for="toAccount" class="form-label">To Account</label>
+                                <input type="text" class="form-control" name="toAccount" id="toAccount" required>
+                            </div>
+                            <div class="mb-3">
+                                <label for="amount" class="form-label">Amount</label>
+                                <input type="text" class="form-control" name="amount" id="amount" required>
+                            </div>
+                            <button type="submit" class="btn btn-primary">Transfer</button>
+                        </form>
                     </div>
                 </div>
             </main>
+
         </div>
     </div>
 
@@ -94,7 +95,7 @@
         </div>
     </footer>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.min.js"></script>
-    <script src="./js/dashboard.js"></script>
+    <script src="./js/fundtransfer.js"></script>
 </body>
 
 </html>

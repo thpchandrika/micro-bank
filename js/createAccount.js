@@ -39,12 +39,14 @@ form.addEventListener("submit", async function (e) {
             }
         })
         .then(data => {
-            if (data) {
+            if (data.message) {
+                alert(data.message);
+            } else {
                 alert("Account created successfully");
             }
             //form.reset();
         })
         .catch(error => {
-            console.log("Error creating account" + error);
+            console.error("Error creating account" + error);
         })
 })

@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Bill Payment</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+    <!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css"> -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+        crossorigin="anonymous"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+    <script src="./js/common/authenticate.js"></script>
+</head>
+
+<body>
+    <!-- Header Section -->
+    <header class="bg-primary text-white p-3">
+        <div class="container d-flex justify-content-between align-items-center">
+            <h1>Bank Account Dashboard</h1>
+            <button class="btn btn-info btn-lg" id="logoutbtn">
+                <span class="glyphicon glyphicon-log-out"></span> Log out
+            </button>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <div class="container-fluid">
+        <div class="row">
+            <!-- Sidebar -->
+            <nav id="sidebar" class="col-md-3 col-lg-2 d-md-block bg-light sidebar">
+                <div class="position-sticky">
+                    <ul class="nav flex-column">
+                        <li class="nav-item">
+                            <a class="nav-link active" href="#">
+                                Dashboard
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="./createaccount.html">
+                                Create Account
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="./accountdetails.html">
+                                Account Details
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">
+                                Fund Transfer
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">
+                                Bill Payment
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </nav>
+
+            <!-- Main Content -->
+            <main class="col-md-9 ms-sm-auto col-lg-10 px-md-4">
+                <div class="card">
+                    <div class="card-header">
+                        <h3>Bill Payment</h3>
+                    </div>
+                    <div class="card">
+                        <div class="card-header">
+                            <h3>Select Payment Method</h3>
+                        </div>
+                        <div class="card-body">
+                            <button class="btn btn-primary" data-bs-toggle="modal"
+                                data-bs-target="#creditPaymentModal">Credit
+                                Card Payment</button>
+                            <button class="btn btn-primary" data-bs-toggle="modal"
+                                data-bs-target="#utilityPaymentModal">Utility Bill
+                                Payment</button>
+                        </div>
+                    </div>
+                </div>
+            </main>
+
+            <!-- Credit Card Payment Modal -->
+            <div class="modal fade" id="creditPaymentModal" tabindex="-1" aria-labelledby="creditPaymentModalLabel"
+                aria-hidden="true">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="paymentModalLabel">Modal title</h5>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        </div>
+                        <div class="modal-body">
+                            <form>
+                                <div class="mb-3">
+                                    <label for="bankAccount" class="form-label">From Bank Account</label>
+                                    <input type="text" class="form-control" id="bankAccount" name="bankAccount"
+                                        required>
+                                </div>
+                                <div class="mb-3">
+                                    <label for="creditCard" class="form-label">To Credit Card</label>
+                                    <input type="text" class="form-control" id="creditCard" name="creditCard" required>
+                                </div>
+                                <div class="mb-3">
+                                    <label for="amount" class="form-label">Amount</label>
+                                    <input type="text" class="form-control" id="amount" name="amount" required>
+                                </div>
+                            </form>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                            <button type="button" class="btn btn-primary">Make Payment</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- Credit Card Payment Modal End -->
+
+            <!-- Utility payment modal -->
+            <div class="modal fade" id="utilityPaymentModal" tabindex="-1" aria-labelledby="utilityPaymentModalLabel"
+                aria-hidden="true">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="utilityPaymentModalLabel">Modal title</h5>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        </div>
+                        <div class="modal-body">
+                            ...
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                            <button type="button" class="btn btn-primary">Save changes</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- Utility payment modal end -->
+        </div>
+    </div>
+
+    <!-- Footer Section -->
+    <footer class="footer bg-light text-center py-4 mt-2">
+        <div class="container">
+            <p>&copy; 2023 Online Banking. All rights reserved.</p>
+        </div>
+    </footer>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.min.js"></script>
+    <!-- <script src="./js/dashboard.js"></script> -->
+    <script>
+        function showCreditCardForm() {
+            // Logic to display credit card payment form
+        }
+
+        function showUtilityBillForm() {
+            // Logic to display utility bill payment form
+        }
+    </script>
+</body>
+
+</html>
