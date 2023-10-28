@@ -48,3 +48,10 @@ body {
 .login-logout-card .card-body {
     padding: 10px 20px;
 }
+
+.hero {
+    background-image: url('../images/bank1.png');
+    background-size: cover;
+    background-position: center;
+    z-index: -3;
+}
