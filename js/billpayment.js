@@ -66,7 +66,6 @@ form.addEventListener('submit', async e => {
             }
         })
         .then(data => {
-            console.log(data);
             if (data.message) {
                 alert(data.message);
                 document.getElementById("creditPaymentModal").classList.add("show");

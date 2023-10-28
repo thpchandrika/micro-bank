@@ -6,7 +6,6 @@ async function displayAccounts() {
     let json;
     if (response.ok) {
         json = await response.json();
-        console.log(json);
         document.getElementById('tbodyAccountList').innerHTML = "";
         for (let a of json) {
             addRowToTable(a.accountNumber, a.accountHolder, a.accountType, a.balance);

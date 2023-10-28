@@ -2,8 +2,6 @@
 
 window.onload = loadAccountDetails;
 
-// const loggedInUserName = localStorage.getItem("username");
-
 async function loadAccountDetails() {
     const username = localStorage.getItem("username");
     const token = localStorage.getItem("authToken");

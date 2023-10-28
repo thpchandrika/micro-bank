@@ -10,7 +10,6 @@ async function displayTransactions() {
     let json;
     if (response.ok) {
         json = await response.json();
-        console.log("history", json);
         document.getElementById('transactionHistoryList').innerHTML = "";
         for (let a of json) {
             addRowToTable(a.id, a.date, a.description, a.amount, a.balance, a.transactionAccount, a.transactionType);
@@ -47,7 +46,6 @@ searchForm.addEventListener("submit", async e => {
     let fromDate = searchForm.elements.fromDate.value;
     let toDate = searchForm.elements.toDate.value;
 
-    console.log(fromDate, toDate, username);
     const settings = {
         method: "GET",
         headers: {
