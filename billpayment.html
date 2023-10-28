@@ -4,14 +4,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Bill Payment</title>
+    <title>Online Banking System</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+
     <!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css"> -->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
-        integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
-        crossorigin="anonymous"></script>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
     <script src="./js/common/authenticate.js"></script>
 </head>
 
@@ -19,7 +16,7 @@
     <!-- Header Section -->
     <header class="bg-primary text-white p-3">
         <div class="container d-flex justify-content-between align-items-center">
-            <h1>Bank Account Dashboard</h1>
+            <h1>Bill Payment</h1>
             <button class="btn btn-info btn-lg" id="logoutbtn">
                 <span class="glyphicon glyphicon-log-out"></span> Log out
             </button>
@@ -34,7 +31,7 @@
                 <div class="position-sticky">
                     <ul class="nav flex-column">
                         <li class="nav-item">
-                            <a class="nav-link active" href="#">
+                            <a class="nav-link active" href="./dashboard.html">
                                 Dashboard
                             </a>
                         </li>
@@ -49,70 +46,85 @@
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="#">
+                            <a class="nav-link" href="./fundtransfer.html">
                                 Fund Transfer
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="#">
+                            <a class="nav-link" href="./billpayment.html">
                                 Bill Payment
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="./transactionhistory.html">
+                                Transaction History
                             </a>
                         </li>
                     </ul>
                 </div>
             </nav>
 
-            <!-- Main Content -->
             <main class="col-md-9 ms-sm-auto col-lg-10 px-md-4">
                 <div class="card">
                     <div class="card-header">
                         <h3>Bill Payment</h3>
                     </div>
-                    <div class="card">
-                        <div class="card-header">
-                            <h3>Select Payment Method</h3>
-                        </div>
-                        <div class="card-body">
-                            <button class="btn btn-primary" data-bs-toggle="modal"
-                                data-bs-target="#creditPaymentModal">Credit
-                                Card Payment</button>
-                            <button class="btn btn-primary" data-bs-toggle="modal"
-                                data-bs-target="#utilityPaymentModal">Utility Bill
-                                Payment</button>
-                        </div>
+                    <div class="card-body">
+                        <button class="btn btn-primary" data-bs-toggle="modal"
+                            data-bs-target="#creditPaymentModal">Credit
+                            Card Payment</button>
+                    </div>
+                    <div class="card-body">
+                        <button class="btn btn-primary" data-bs-toggle="modal"
+                            data-bs-target="#utilityPaymentModal">Utility
+                            Bill
+                            Payment</button>
                     </div>
                 </div>
             </main>
-
             <!-- Credit Card Payment Modal -->
             <div class="modal fade" id="creditPaymentModal" tabindex="-1" aria-labelledby="creditPaymentModalLabel"
                 aria-hidden="true">
                 <div class="modal-dialog">
                     <div class="modal-content">
                         <div class="modal-header">
-                            <h5 class="modal-title" id="paymentModalLabel">Modal title</h5>
+                            <h5 class="modal-title" id="paymentModalLabel">Credit Card Payment</h5>
                             <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                         </div>
                         <div class="modal-body">
-                            <form>
+                            <form id="creditCardPaymentForm">
                                 <div class="mb-3">
-                                    <label for="bankAccount" class="form-label">From Bank Account</label>
-                                    <input type="text" class="form-control" id="bankAccount" name="bankAccount"
+                                    <label for="fromAccount" class="form-label">From Account</label>
+                                    <select class="form-select" name="fromAccountDdl" id="fromAccountDdl" required>
+                                        <option value="" disabled selected>Select an account</option>
+                                    </select>
+                                </div>
+                                <div class="mb-3">
+                                    <label for="toCreditCard" class="form-label">To Credit Card</label>
+                                    <input type="text" class="form-control" id="toCreditCard" name="toCreditCard"
                                         required>
                                 </div>
                                 <div class="mb-3">
-                                    <label for="creditCard" class="form-label">To Credit Card</label>
-                                    <input type="text" class="form-control" id="creditCard" name="creditCard" required>
+                                    <label for="creditCardVendor" class="form-label">Credit Card Vendor</label>
+                                    <input type="text" class="form-control" id="creditCardVendor"
+                                        name="creditCardVendor" required>
                                 </div>
                                 <div class="mb-3">
                                     <label for="amount" class="form-label">Amount</label>
-                                    <input type="text" class="form-control" id="amount" name="amount" required>
+                                    <input type="number" min="1" step="any" class="form-control" id="amount"
+                                        name="amount" required>
+                                </div>
+                                <div class="mb-3">
+                                    <label for="note" class="form-label">Note</label>
+                                    <textarea rows="3" class="form-control" name="note" id="note"></textarea>
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-secondary"
+                                        data-bs-dismiss="modal">Close</button>
+                                    <button type="submit" class="btn btn-primary" id="creditPaymentBtn">Make
+                                        Payment</button>
                                 </div>
                             </form>
-                        </div>
-                        <div class="modal-footer">
-                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                            <button type="button" class="btn btn-primary">Make Payment</button>
                         </div>
                     </div>
                 </div>
@@ -125,15 +137,49 @@
                 <div class="modal-dialog">
                     <div class="modal-content">
                         <div class="modal-header">
-                            <h5 class="modal-title" id="utilityPaymentModalLabel">Modal title</h5>
+                            <h5 class="modal-title" id="utilityPaymentModalLabel">Utility Payment</h5>
                             <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                         </div>
                         <div class="modal-body">
-                            ...
-                        </div>
-                        <div class="modal-footer">
-                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                            <button type="button" class="btn btn-primary">Save changes</button>
+                            <form id="utilityPaymentForm">
+                                <div class="mb-3">
+                                    <label for="fromAccountUtilityDdl" class="form-label">From Account</label>
+                                    <select class="form-select" name="fromAccountUtilityDdl" id="fromAccountUtilityDdl"
+                                        required>
+                                        <option value="" disabled selected>Select an account</option>
+                                    </select>
+                                </div>
+
+                                <div class="mb-3">
+                                    <label for="utilityCompany" class="form-label">Utility Company</label>
+                                    <input type="text" class="form-control" name="utilityCompany" id="utilityCompany"
+                                        required>
+                                </div>
+
+                                <div class="mb-3">
+                                    <label for="utilityUserId" class="form-label">Utility User ID</label>
+                                    <input type="text" class="form-control" name="utilityUserId" id="utilityUserId"
+                                        required>
+                                </div>
+
+                                <div class="mb-3">
+                                    <label for="amount" class="form-label">Amount</label>
+                                    <input type="number" min="1" step="any" class="form-control" name="amountUtility"
+                                        id="amountUtility" required>
+                                </div>
+
+                                <div class="mb-3">
+                                    <label for="notes" class="form-label">Notes</label>
+                                    <textarea class="form-control" name="notes" id="notesUtility" name="notesUtility"
+                                        rows="3"></textarea>
+                                </div>
+
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-secondary"
+                                        data-bs-dismiss="modal">Close</button>
+                                    <button type="submit" class="btn btn-primary">Make Payment</button>
+                                </div>
+                            </form>
                         </div>
                     </div>
                 </div>
@@ -149,16 +195,7 @@
         </div>
     </footer>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.min.js"></script>
-    <!-- <script src="./js/dashboard.js"></script> -->
-    <script>
-        function showCreditCardForm() {
-            // Logic to display credit card payment form
-        }
-
-        function showUtilityBillForm() {
-            // Logic to display utility bill payment form
-        }
-    </script>
+    <script src="./js/billpayment.js"></script>
 </body>
 
 </html>

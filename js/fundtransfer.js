@@ -37,13 +37,14 @@ form.addEventListener("submit", async e => {
     e.preventDefault();
     const toAccount = form.elements.toAccount.value;
     const amount = form.elements.amount.value;
+    const note = form.elements.note.value;
     const fromAccountSelect = form.elements.fromAccountDdl;
     const fromAccount = fromAccountSelect.options[fromAccountSelect.selectedIndex].value;
     const username = localStorage.getItem("username");
 
     const setting = {
         method: "POST",
-        body: JSON.stringify({ fromAccount, toAccount, amount, username }),
+        body: JSON.stringify({ fromAccount, toAccount, amount, note, username }),
         headers: {
             "Content-Type": "application/json",
             "Authorization": `Bearer ${token}`
@@ -62,5 +63,6 @@ form.addEventListener("submit", async e => {
                 alert(data.message);
             } else
                 alert("Amount transferred successfully");
+            form.reset();
         }).catch(console.error);
 })

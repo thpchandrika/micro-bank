@@ -4,16 +4,35 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Create Account</title>
+    <title>Online Banking System</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
     <script src="./js/common/authenticate.js"></script>
+    <style>
+        body {
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .container {
+            flex: 1;
+        }
+
+        .main-content {
+            margin-bottom: 60px;
+            /* Adjust the margin as needed to make the footer visible */
+        }
+    </style>
 </head>
 
 <body>
-    <!-- Header -->
+    <!-- Header Section -->
     <header class="bg-primary text-white p-3">
-        <div class="container">
+        <div class="container d-flex justify-content-between align-items-center">
             <h1>Create Account</h1>
+            <button class="btn btn-info btn-lg" id="logoutbtn">
+                <span class="glyphicon glyphicon-log-out"></span> Log out
+            </button>
         </div>
     </header>
 
@@ -25,28 +44,33 @@
                 <div class="position-sticky">
                     <ul class="nav flex-column">
                         <li class="nav-item">
-                            <a class="nav-link active" href="#">
+                            <a class="nav-link active" href="./dashboard.html">
                                 Dashboard
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="#">
+                            <a class="nav-link" href="./createaccount.html">
                                 Create Account
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="#">
+                            <a class="nav-link" href="./accountdetails.html">
                                 Account Details
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="#">
+                            <a class="nav-link" href="./fundtransfer.html">
                                 Fund Transfer
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="#">
+                            <a class="nav-link" href="./billpayment.html">
                                 Bill Payment
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="./transactionhistory.html">
+                                Transaction History
                             </a>
                         </li>
                     </ul>
@@ -56,13 +80,11 @@
             <!-- Main Content -->
             <main class="col-md-9 ms-sm-auto col-lg-10 px-md-4">
                 <div class="card">
-
                     <div class="card-header">
                         <h3>Create Account</h3>
                     </div>
                     <div class="card-body">
                         <form id="createAccountForm">
-                            <!-- Personal Information -->
                             <div class="mb-3">
                                 <label for="fullname" class="form-label">Full Name</label>
                                 <input type="text" class="form-control" name="accountHolder" id="fullname" required>
@@ -73,7 +95,6 @@
                                 <input type="date" class="form-control" name="dob" id="dob" required>
                             </div>
 
-                            <!-- Contact Information -->
                             <div class="mb-3">
                                 <label for="email" class="form-label">Email Address</label>
                                 <input type="email" class="form-control" name="emailAddress" id="email" required>
@@ -81,10 +102,10 @@
 
                             <div class="mb-3">
                                 <label for="phone" class="form-label">Phone Number</label>
-                                <input type="tel" class="form-control" name="phoneNumber" id="phone" required>
+                                <input type="tel" class="form-control" pattern="\d{3}-\d{3}-\d{4}"
+                                    title="Please enter a phone number in the format 786-535-3455"
+                                    placeholder="XXX-XXX-XXXX" name="phoneNumber" id="phone" required>
                             </div>
-
-                            <!-- Address Information -->
 
                             <div class="mb-3">
                                 <label for="address" class="form-label">State</label>
@@ -103,22 +124,24 @@
 
                             <div class="mb-3">
                                 <label for="ssn" class="form-label">SSN</label>
-                                <input type="text" class="form-control" name="ssn" id="ssn" required>
+                                <input type="text" class="form-control" pattern="\d{3}-\d{2}-\d{4}"
+                                    title="Please enter a valid Social Security Number in the format 987-65-0987"
+                                    name="ssn" id="ssn" placeholder="XXX-XX-XXXX" required>
                             </div>
 
                             <div class="mb-3">
-                                <label for="initial_deposit" class="form-label">Initial Deposit</label>
-                                <input type="text" class="form-control" name="initialDeposit" id="initial_deposit"
+                                <label for="initial_deposit" class="form-label">Initial Deposit (Minimum $100)</label>
+                                <input type="number" class="form-control" name="initialDeposit" id="initial_deposit"
+                                    min="100" step="any" title="Please enter an initial deposit of at least $100"
                                     required>
                             </div>
-                            <!-- Account Type -->
 
                             <div class="mb-3">
                                 <label class="form-label">Select Account Type</label>
-                                <select class="form-select" required name="accountType" id="accountTypeDdl">
+                                <select class="form-select" required name="accountTypeDdl" id="accountTypeDdl">
                                     <option value="" disabled selected>Select an option</option>
-                                    <option value="savings">Savings Account</option>
-                                    <option value="checking">Checking Account</option>
+                                    <option value="Savings">Savings Account</option>
+                                    <option value="Checking">Checking Account</option>
                                 </select>
                             </div>
 
@@ -128,7 +151,6 @@
                                     conditions</label>
                             </div>
 
-                            <!-- Submit Button -->
                             <button type="submit" class="btn btn-primary">Open Account</button>
                         </form>
                     </div>
@@ -138,11 +160,12 @@
     </div>
 
     <!-- Footer Section -->
-    <footer class="footer bg-light text-center py-4 mt-2">
-        <div class="container">
-            <p>&copy; 2023 Online Banking. All rights reserved.</p>
-        </div>
+    <footer class="footer bg-light text-center fixed-bottom">
+
+        <p>&copy; 2023 Online Banking. All rights reserved.</p>
+
     </footer>
+
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.min.js"></script>
     <script src="./js/createAccount.js"></script>
 </body>

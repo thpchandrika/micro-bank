@@ -3,23 +3,19 @@ const form = document.getElementById("createAccountForm");
 form.addEventListener("submit", async function (e) {
     e.preventDefault();
 
-    const accountHolderName = document.getElementById("fullname").value;
-    const dob = document.getElementById("dob").value;
-    const emailAddress = document.getElementById("email").value;
-    const phoneNumber = document.getElementById("phone").value;
-    const state = document.getElementById("state").value;
-    const city = document.getElementById("city").value;
-    const zip = document.getElementById("zipcode").value;
-    const ssn = document.getElementById("ssn").value;
-    const initialDeposit = document.getElementById("initial_deposit").value;
-    const accountTypeDropdown = document.getElementById("accountTypeDdl");
-    const accountType = accountTypeDropdown.options[accountTypeDropdown.selectedIndex].value;
+    const accountHolderName = form.elements.fullname.value;
+    const dob = form.elements.dob.value;
+    const emailAddress = form.elements.email.value;
+    const phoneNumber = form.elements.phone.value;
+    const state = form.elements.state.value;
+    const city = form.elements.city.value;
+    const zip = form.elements.zipcode.value;
+    const ssn = form.elements.ssn.value;
+    const initialDeposit = parseFloat(form.elements.initialDeposit.value);
+    const accountType = form.elements.accountTypeDdl.value;
 
-    // const formData = new FormData(this);
-    //console.log(formData);
     const username = localStorage.getItem("username");
     const token = localStorage.getItem("authToken");
-    //formData.append("username", localStorage.getItem("username"))
 
     const data = JSON.stringify({ accountHolderName, dob, emailAddress, phoneNumber, state, city, zip, ssn, initialDeposit, accountType, username });
     const accountOptions = {
@@ -43,8 +39,8 @@ form.addEventListener("submit", async function (e) {
                 alert(data.message);
             } else {
                 alert("Account created successfully");
+                form.reset();
             }
-            //form.reset();
         })
         .catch(error => {
             console.error("Error creating account" + error);

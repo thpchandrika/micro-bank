@@ -4,22 +4,21 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Create Account</title>
+    <title>Online Banking System</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
-    <script>
-        const authToken = localStorage.getItem('authToken');
-        console.log(authToken);
-        if (!authToken) {
-            window.location.href = './login.html';
-        }
-    </script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+    <script src="./js/common/authenticate.js"></script>
 </head>
 
 <body>
-    <!-- Header -->
+    <!-- Header Section -->
     <header class="bg-primary text-white p-3">
-        <div class="container">
-            <h1>Create Account</h1>
+        <div class="container d-flex justify-content-between align-items-center">
+            <h1>Account Details</h1>
+            <button class="btn btn-info btn-lg" id="logoutbtn">
+                <span class="glyphicon glyphicon-log-out"></span> Log out
+            </button>
         </div>
     </header>
 
@@ -31,28 +30,33 @@
                 <div class="position-sticky">
                     <ul class="nav flex-column">
                         <li class="nav-item">
-                            <a class="nav-link active" href="#">
+                            <a class="nav-link active" href="./dashboard.html">
                                 Dashboard
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="#">
+                            <a class="nav-link" href="./createaccount.html">
                                 Create Account
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="#">
+                            <a class="nav-link" href="./accountdetails.html">
                                 Account Details
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="#">
+                            <a class="nav-link" href="./fundtransfer.html">
                                 Fund Transfer
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="#">
+                            <a class="nav-link" href="./billpayment.html">
                                 Bill Payment
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="./transactionhistory.html">
+                                Transaction History
                             </a>
                         </li>
                     </ul>
