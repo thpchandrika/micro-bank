@@ -2,11 +2,7 @@
 
 window.onload = loadAccountDetails;
 
-const logutBtn = document.getElementById("logoutbtn");
-logutBtn.addEventListener("click", function () {
-    localStorage.removeItem("authToken");
-    window.location.href = "./home.html"
-});
+// const loggedInUserName = localStorage.getItem("username");
 
 async function loadAccountDetails() {
     const username = localStorage.getItem("username");
@@ -50,3 +46,8 @@ async function loadAccountDetails() {
             }
         }).catch(console.error);
 }
+
+// const loggedInUserSpan = document.getElementById("loggedInUser");
+// loggedInUserSpan.classList.add("text-lg");
+// loggedInUserSpan.classList.add("text-info-lg");
+// loggedInUserSpan.textContent = `Welcome, ${loggedInUserName}`;

@@ -7,8 +7,6 @@
     <title>Online Banking System</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
 
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
     <script src="./js/common/authenticate.js"></script>
 </head>
 
@@ -17,7 +15,8 @@
     <header class="bg-primary text-white p-3">
         <div class="container d-flex justify-content-between align-items-center">
             <h1>Bank Account Dashboard</h1>
-            <button class="btn btn-info btn-lg" id="logoutbtn">
+            <span id="loggedInUser"></span>
+            <button class="btn btn-danger" id="logoutbtn">
                 <span class="glyphicon glyphicon-log-out"></span> Log out
             </button>
         </div>
@@ -73,20 +72,16 @@
     </div>
 
     <!-- Footer Section -->
-    <!-- <footer class="footer bg-light text-center py-4 mt-2 fixed-position">
+    <footer class="footer bg-light text-center py-4 mt-2 fixed-bottom">
         <div class="container">
             <p>&copy; 2023 Online Banking. All rights reserved.</p>
         </div>
-    </footer> -->
-    <!-- Start footer -->
-    <footer>
-        <div>
-            <span style="margin-left: 1em;">Chandrika Thapa ::: CS472-WAP</span>
-            <span style="float: right;margin-right: 1em;"> &copy; October 2023</span>
-        </div>
     </footer>
+    <!-- Start footer -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.min.js"></script>
     <script src="./js/dashboard.js"></script>
+    <script src="./js/common/logout.js"></script>
+    <script src="./js/common/loggedinuser.js"></script>
 </body>
 
 </html>

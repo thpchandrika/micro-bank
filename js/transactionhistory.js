@@ -6,7 +6,7 @@ const searchForm = document.getElementById("filterForm");
 const username = localStorage.getItem("username");
 
 async function displayTransactions() {
-    let response = await fetch("http://localhost:5000/accounts/transactionhistory");
+    let response = await fetch(`http://localhost:5000/accounts/transactionhistorybyusername?username=${username}`);
     let json;
     if (response.ok) {
         json = await response.json();
