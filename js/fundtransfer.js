@@ -61,8 +61,10 @@ form.addEventListener("submit", async e => {
         }).then(data => {
             if (data.message) {
                 alert(data.message);
-            } else
+            } else {
                 alert("Amount transferred successfully");
-            form.reset();
+                form.reset();
+            }
+
         }).catch(console.error);
 })
